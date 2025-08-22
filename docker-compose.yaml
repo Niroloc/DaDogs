@@ -9,6 +9,7 @@ services:
     volumes:
       - ./logs/bot.logs:/.logs
       - ./data/:/data/
+      - ./config/config.json:/config.json
 
   cron:
     restart: always
@@ -20,3 +21,4 @@ services:
     volumes:
       - ./data/:/data/
       - ./logs/cron.logs:/.logs
+      - ./config/config.json:/config.json
