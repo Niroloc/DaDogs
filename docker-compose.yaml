@@ -1,0 +1,22 @@
+services:
+  bot:
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfiles/bot.Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./logs/bot.logs:/.logs
+      - ./data/:/data/
+
+  cron:
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfiles/cron.Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./data/:/data/
+      - ./logs/cron.logs:/.logs
