@@ -6,5 +6,6 @@ COPY requirements.txt
 RUN pip3 install -r requirements.txt
 
 ADD src .
+RUN python3 -u setup_db.py
 
 CMD ["python3", "-u", "run_bot.py"]
