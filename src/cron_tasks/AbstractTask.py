@@ -2,5 +2,9 @@ from abc import ABC
 
 
 class CronTask(ABC):
-    def run_task(self, config):
+    task_alias = None
+    def __init__(self):
+        pass
+
+    def run_task(self):
         pass
