@@ -1,7 +1,8 @@
+import logging
 import sqlite3
 import os.path
 
-from config.constants import DB_FILE, MIGRATION_FOLDER
+from config.constants import DB_FILE, MIGRATION_FOLDER, LOGS
 
 
 def do_setup():
@@ -10,9 +11,16 @@ def do_setup():
     os.makedirs(MIGRATION_FOLDER, exist_ok=True)
     for file in os.listdir(MIGRATION_FOLDER):
         with open(os.path.join(MIGRATION_FOLDER, file), 'r') as f:
-            query = f.read()
-            cur.execute(query)
+            queries = f.read().split(";")
+            for query in queries:
+                cur.execute(query)
     conn.commit()
 
 if __name__ == '__main__' and not os.path.isfile(DB_FILE):
+    logging.basicConfig(
+        level=logging.INFO,
+        filename=LOGS,
+        format="%(pathname)s -- %(asctime)s -- [%(levelname)s] -- \"%(message)s \"")
+    logging.info("Setting up db...")
     do_setup()
+    logging.info("Db is settled")

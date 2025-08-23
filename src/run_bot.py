@@ -3,7 +3,7 @@ import sys
 from traceback import format_exc
 
 from config.constants import LOGS
-from bot import DaDogsBot
+from utils.bot import DaDogsBot
 
 if __name__ == '__main__':
     logging.basicConfig(

@@ -5,6 +5,7 @@ CONFIG_FILE = '/config.json'
 DB_FILE = '/data/db.db'
 MIGRATION_FOLDER = '/data/migrations'
 BOT_TOKEN = os.getenv('BOT_TOKEN', None)
+ADMIN_ID = int(os.getenv('ADMIN_ID', "0"))
 
 if os.getenv("ENVIRONMENT", 'dev') == 'dev':
     LOGS = f'{os.environ["HOME"]}/PycharmProjects/DaDogs/logs/common.logs'
