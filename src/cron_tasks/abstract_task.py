@@ -2,7 +2,7 @@ from abc import ABC
 
 
 class CronTask(ABC):
-    task_alias = None
+    task_alias: str = ""
     def __init__(self):
         pass
 

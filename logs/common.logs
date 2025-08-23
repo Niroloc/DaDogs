@@ -1,0 +1,91 @@
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:03:13,075 -- [INFO] -- "Initializing bot... "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:03:13,112 -- [INFO] -- "Starting service... "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:13,112 -- [INFO] -- "Start polling "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:13,383 -- [INFO] -- "Run polling for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,132 -- [WARNING] -- "Received SIGINT signal "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,133 -- [INFO] -- "Polling stopped for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,133 -- [INFO] -- "Polling stopped "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,387 -- [INFO] -- "Start polling "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,388 -- [INFO] -- "Run polling for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,389 -- [INFO] -- "Polling stopped for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,389 -- [INFO] -- "Polling stopped "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:03:14,644 -- [WARNING] -- "Bot has been crashed, restarting... "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:03:14,646 -- [WARNING] -- "Traceback (most recent call last):
+  File "/home/cicn/PycharmProjects/DaDogs/src/run_bot.py", line 25, in <module>
+    bot.run()
+  File "/home/cicn/PycharmProjects/DaDogs/src/bot.py", line 32, in run
+    asyncio.run(self.dp.start_polling(self.bot))
+  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 591, in start_polling
+    await asyncio.gather(*done)
+  File "/usr/lib/python3.10/asyncio/locks.py", line 211, in wait
+    fut = self._get_loop().create_future()
+  File "/usr/lib/python3.10/asyncio/mixins.py", line 30, in _get_loop
+    raise RuntimeError(f'{self!r} is bound to a different event loop')
+RuntimeError: <asyncio.locks.Event object at 0x78e1a832a9b0 [unset]> is bound to a different event loop
+ "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,647 -- [INFO] -- "Start polling "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,647 -- [INFO] -- "Run polling for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,649 -- [INFO] -- "Polling stopped for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,649 -- [INFO] -- "Polling stopped "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:03:14,903 -- [WARNING] -- "Bot has been crashed, restarting... "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:03:14,904 -- [WARNING] -- "Traceback (most recent call last):
+  File "/home/cicn/PycharmProjects/DaDogs/src/run_bot.py", line 25, in <module>
+    bot.run()
+  File "/home/cicn/PycharmProjects/DaDogs/src/bot.py", line 32, in run
+    asyncio.run(self.dp.start_polling(self.bot))
+  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 591, in start_polling
+    await asyncio.gather(*done)
+  File "/usr/lib/python3.10/asyncio/locks.py", line 211, in wait
+    fut = self._get_loop().create_future()
+  File "/usr/lib/python3.10/asyncio/mixins.py", line 30, in _get_loop
+    raise RuntimeError(f'{self!r} is bound to a different event loop')
+RuntimeError: <asyncio.locks.Event object at 0x78e1a832a9b0 [unset]> is bound to a different event loop
+ "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,905 -- [INFO] -- "Start polling "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,905 -- [INFO] -- "Run polling for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,907 -- [INFO] -- "Polling stopped for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:14,907 -- [INFO] -- "Polling stopped "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:03:15,160 -- [WARNING] -- "Bot has been crashed, restarting... "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:03:15,161 -- [WARNING] -- "Traceback (most recent call last):
+  File "/home/cicn/PycharmProjects/DaDogs/src/run_bot.py", line 25, in <module>
+    bot.run()
+  File "/home/cicn/PycharmProjects/DaDogs/src/bot.py", line 32, in run
+    asyncio.run(self.dp.start_polling(self.bot))
+  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 591, in start_polling
+    await asyncio.gather(*done)
+  File "/usr/lib/python3.10/asyncio/locks.py", line 211, in wait
+    fut = self._get_loop().create_future()
+  File "/usr/lib/python3.10/asyncio/mixins.py", line 30, in _get_loop
+    raise RuntimeError(f'{self!r} is bound to a different event loop')
+RuntimeError: <asyncio.locks.Event object at 0x78e1a832a9b0 [unset]> is bound to a different event loop
+ "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:15,161 -- [INFO] -- "Start polling "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:15,162 -- [INFO] -- "Run polling for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:15,163 -- [INFO] -- "Polling stopped for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:03:15,164 -- [INFO] -- "Polling stopped "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:06:19,872 -- [INFO] -- "Initializing bot... "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:06:19,909 -- [INFO] -- "Starting service... "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:06:19,910 -- [INFO] -- "Start polling "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:06:20,169 -- [INFO] -- "Run polling for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:06:23,125 -- [WARNING] -- "Received SIGINT signal "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:06:23,126 -- [INFO] -- "Polling stopped for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:06:23,126 -- [INFO] -- "Polling stopped "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:07:01,296 -- [INFO] -- "Initializing bot... "
+/home/cicn/PycharmProjects/DaDogs/src/run_bot.py -- 2025-08-23 12:07:01,333 -- [INFO] -- "Starting service... "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:07:01,333 -- [INFO] -- "Start polling "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:07:01,608 -- [INFO] -- "Run polling for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:07:02,499 -- [WARNING] -- "Received SIGINT signal "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:07:02,499 -- [INFO] -- "Polling stopped for bot @DaDogsBot id=8032204162 - 'DaDogs' "
+/home/cicn/PycharmProjects/DaDogs/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py -- 2025-08-23 12:07:02,499 -- [INFO] -- "Polling stopped "
