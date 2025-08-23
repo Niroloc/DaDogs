@@ -21,13 +21,13 @@ class DaDogsBot:
         async def command_start_handler(message: Message) -> None:
             if not self.check_rights(message):
                 return
-            await self.cmdr.get_main_menu_callback("")(message)
+            await self.cmdr.get_message_callback("")(message)
 
         @self.dp.message()
         async def echo_handler(message: Message) -> None:
             if not self.check_rights(message):
                 return
-            await self.cmdr.get_main_menu_callback(message.text)(message)
+            await self.cmdr.get_message_callback(message.text)(message)
 
     def check_rights(self, msg: Message) -> bool:
         return msg.chat.id == ADMIN_ID

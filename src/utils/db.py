@@ -39,3 +39,6 @@ class Db:
             logging.error("Inserting new dog finished with an error")
             logging.error(format_exc())
             return -1
+
+    def delete_dog(self, ident):
+        pass
