@@ -1,6 +1,6 @@
 import sqlite3
 
-from src.config.constants import DB_FILE
+from ..config.constants import DB_FILE
 
 
 class Db:

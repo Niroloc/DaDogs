@@ -1,4 +1,4 @@
-from src.config.config import Config
+from ..config.config import Config
 
 
 class CronTasksHelper:
