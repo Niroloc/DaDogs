@@ -1,3 +1,4 @@
+import datetime
 import sqlite3
 import logging
 from traceback import format_exc
@@ -48,3 +49,42 @@ class Db:
         '''
         self.cur.execute(query)
         self.conn.commit()
+
+    def add_walk(self, ident: int, dt: datetime.date, ts: datetime.time, quantity: int) -> int:
+        query = f'''
+            insert into walks
+            (dt, ts, quantity, dog_id)
+            values
+            ('{dt.strftime("%Y-%m-%d")}', '{ts.strftime("%H:%M:%S")}', {quantity}, {ident})
+            returning id
+        '''
+        self.cur.execute(query)
+        res = self.cur.fetchall()
+        self.conn.commit()
+        if len(res) <= 0:
+            logging.error(format_exc())
+            return -1
+        return res[0][0]
+
+    def get_dog_name_from_id(self, ident: int) -> str:
+        query = f'''
+            select name
+            from dogs
+            where id = {ident}
+        '''
+        self.cur.execute(query)
+        res = self.cur.fetchall()
+        if len(res) <= 0:
+            logging.error(format_exc())
+            return ""
+        return res[0][0]
+
+    def get_amounts_by_dogs(self) -> list[tuple[str, int, int]]:
+        query = '''
+            select d.name, sum(w.quantity) as summ, count(w.quantity) as count
+            from walks w left join dogs d on w.dog_id = d.id
+            group by d.name
+            order by summ desc
+        '''
+        self.cur.execute(query)
+        return self.cur.fetchall()
