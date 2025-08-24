@@ -1,4 +1,5 @@
 import asyncio
+import logging
 
 from aiogram import Bot, Dispatcher, html
 from aiogram.client.default import DefaultBotProperties
@@ -19,6 +20,7 @@ class DaDogsBot:
 
         @self.dp.message(CommandStart())
         async def command_start_handler(message: Message) -> None:
+            logging.info(f"Message from {message.chat.id}")
             if not self.check_rights(message):
                 return
             await self.cmdr.get_message_callback("")(message)
