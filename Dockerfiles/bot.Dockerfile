@@ -2,7 +2,7 @@ FROM python:3.10.18@sha256:4585309097d523698d382a2de388340896e021319b327e2d9c028
 USER root
 WORKDIR /src
 
-COPY requirements.txt
+COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 ADD src .
