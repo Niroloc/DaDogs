@@ -21,6 +21,3 @@ if __name__ == '__main__' and not os.path.isfile(DB_FILE):
         level=logging.INFO,
         filename=LOGS,
         format="%(pathname)s -- %(asctime)s -- [%(levelname)s] -- \"%(message)s \"")
-    logging.info("Setting up db...")
-    do_setup()
-    logging.info("Db is settled")

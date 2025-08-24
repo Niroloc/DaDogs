@@ -3,4 +3,6 @@
 __pycache__/
 .env
 data/db.db
-logs/*.logs
+logs/bot.logs
+logs/common.logs
+logs/cron.logs

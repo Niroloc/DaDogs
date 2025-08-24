@@ -1,5 +1,6 @@
 import os
 
+print(f"Building constants for {os.getenv('ENVIRONMENT', 'dev')} environment")
 LOGS = '/.logs'
 CONFIG_FILE = '/config.json'
 DB_FILE = '/data/db.db'
