@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher, html
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 
 from src.config.constants import BOT_TOKEN
 from src.utils.bot_commands import Commander
@@ -24,10 +24,16 @@ class DaDogsBot:
             await self.cmdr.get_message_callback("")(message)
 
         @self.dp.message()
-        async def echo_handler(message: Message) -> None:
+        async def message_handler(message: Message) -> None:
             if not self.check_rights(message):
                 return
             await self.cmdr.get_message_callback(message.text)(message)
+
+        @self.dp.callback_query()
+        async def callback_handler(callback: CallbackQuery):
+            if not self.check_rights(callback.message):
+                return
+            await self.cmdr.get_callback_callback(callback)(callback)
 
     def check_rights(self, msg: Message) -> bool:
         return msg.chat.id == ADMIN_ID

@@ -40,5 +40,11 @@ class Db:
             logging.error(format_exc())
             return -1
 
-    def delete_dog(self, ident):
-        pass
+    def delete_dog(self, ident: int) -> None:
+        query = f'''
+            update dogs
+            set deleted = 1
+            where id = {ident}
+        '''
+        self.cur.execute(query)
+        self.conn.commit()

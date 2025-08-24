@@ -1,5 +1,7 @@
 import logging
+from traceback import format_exc
 from typing import Coroutine, Any, Callable
+from datetime import datetime, date
 
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from aiogram.utils.keyboard import InlineKeyboardBuilder
@@ -34,7 +36,13 @@ class Commander:
         pass
 
     async def delete(self, callback: CallbackQuery) -> None:
-        pass
+        alias = callback.data
+        args = self._get_args_from_alias(alias)
+        if len(args) != 1:
+            logging.error(format_exc())
+        ident = args[0]
+        self.db.delete_dog(ident)
+        await callback.message.answer("Готово!")
 
     async def empty(self, callback: CallbackQuery) -> None:
         pass
@@ -72,7 +80,10 @@ class Commander:
         for ident, name in top_dogs:
             builder.add(InlineKeyboardButton(text=name, callback_data=f"delete_{ident}"))
         await msg.answer(text="Очень жаль!", reply_markup=self._get_kb())
-        await msg.answer(text="Выберите собаку, которую больше не хотите видеть в списках", reply_markup=builder.as_markup())
+        await msg.answer(
+            text="Выберите собаку, которую больше не хотите видеть в списках",
+            reply_markup=builder.as_markup()
+        )
 
     def get_message_callback(self, command: str) -> Callable[[Message], Coroutine[Any, Any, None]]:
         if command not in self.message_to_callback:
@@ -83,15 +94,26 @@ class Commander:
 
     def get_callback_callback(self, callback: CallbackQuery) -> Callable[[CallbackQuery], Coroutine[Any, Any, None]]:
         alias = callback.data
-        if len(alias) < 8 or alias[: 8] not in self.alias_to_callback:
+        if len(alias) < 6 or alias[: 6] not in self.alias_to_callback:
             logging.warning(f"{alias} is not supported")
             callback.answer(text="Произошла непредвиденная ошибка:(")
             return self.empty
-        alias = alias[: 8]
+        alias = alias[: 6]
         return self.alias_to_callback[alias]
 
     @staticmethod
     def _get_args_from_alias(alias: str) -> list:
         args = alias.split('_')[1: ]
-        # validate
-        return args
+        res = []
+        for arg, f in zip(args,
+                     [lambda x: int(x),
+                      lambda x: datetime.strptime(x, '%Y-%m-%d').date(),
+                      lambda x: datetime.strptime(x, '%H:%M:%S').time(),
+                      lambda x: int(x)]):
+            try:
+                res.append(f(arg))
+            except:
+                logging.warning(f"Unexpected behaviour while parsing '{alias}'")
+                logging.warning(format_exc())
+                break
+        return res
