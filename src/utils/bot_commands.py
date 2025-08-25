@@ -18,7 +18,8 @@ class Commander:
             'Выгул': self.walk,
             'Добавить собаку': self.add_dog,
             'Удалить собаку': self.delete_dog,
-            'Детализация по собакам': self.get_amounts_by_dogs
+            'Детализация по собакам': self.get_amounts_by_dogs,
+            'Отчёт по сегодняшним выгулам': self.get_all_walks_today
         }
         self.steps_in_message_callbacks: dict[str, int] = {
             k: 0 for k in self.message_to_callback
@@ -142,8 +143,18 @@ class Commander:
 
     def _get_kb(self) -> ReplyKeyboardMarkup:
         buttons = [KeyboardButton(text=k) for k in self.message_to_callback]
-        buttons = [buttons[0: 1], buttons[1:]]
+        buttons = [buttons[0: 1]] +  [buttons[i: i + 2] for i in range(1, len(buttons), 2)]
         return ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True, one_time_keyboard=False)
+
+    async def get_all_walks_today(self, msg: Message) -> None:
+        res = self.db.get_walks()
+        ans = ""
+        s = 0
+        for i, (ts, name, quantity) in enumerate(res):
+            ans += f"{i + 1}) {name} в {ts[:-3]} за {quantity} рублей;\n"
+            s += quantity
+        ans += f"итого: {s} рублей."
+        await msg.answer(text=ans, reply_markup=self._get_kb())
 
     async def walk(self, msg: Message) -> None:
         builder = InlineKeyboardBuilder()

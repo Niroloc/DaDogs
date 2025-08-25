@@ -66,6 +66,26 @@ class Db:
             return -1
         return res[0][0]
 
+    def get_walks(self, month: int = None) -> list[tuple[str, str, int]]:
+        today = datetime.date.today()
+        query: str
+        if month is None:
+            query = f'''
+                select w.ts, d.name, w.quantity
+                from walks w left join dogs d on d.id = w.dog_id
+                where w.dt = '{today.strftime("%Y-%m-%d")}'
+                order by w.ts
+            '''
+        else:
+            query = f'''
+                        select w.ts, d.name, w.quantity
+                        from walks w left join dogs d on d.id = w.dog_id
+                        where strftime('%m', datetime(w.dt)) = '{month}'
+                        order by w.ts
+                    '''
+        self.cur.execute(query)
+        return self.cur.fetchall()
+
     def get_dog_name_from_id(self, ident: int) -> str:
         query = f'''
             select name

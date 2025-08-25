@@ -1,10 +1,8 @@
 import logging
-import os.path
 import sys
 from traceback import format_exc
 
 from config.constants import LOGS
-from src.config.constants import DB_FILE
 from utils.bot import DaDogsBot
 from setup_db import do_setup
 
